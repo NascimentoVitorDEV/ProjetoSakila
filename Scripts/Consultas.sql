@@ -69,9 +69,75 @@ INNER JOIN inventory AS I ON I.film_id = F.film_id
 INNER JOIN rental AS R ON R.inventory_id = I.inventory_id
 GROUP BY F.film_id, F.title 
 ORDER BY QUANTIDADE_ALUGUEL DESC
-LIMIT 10
+LIMIT 10;
 
 
+-- Clientes que mais alugaM FIMES
+
+SELECT
+	
+    C.customer_id,
+    C.first_name,
+    COUNT(R.rental_id) QUANTIDADEALUGEIS
+FROM rental AS R
+INNER JOIN customer AS C ON C.customer_id = R.customer_id
+GROUP BY C.customer_id, C.first_name
+ORDER BY QUANTIDADEALUGEIS DESC
+LIMIT 10;
+
+-- clientes que mais pagaram aluguel
+SELECT
+    C.customer_id,
+    C.first_name,
+    SUM(P.amount) TOTALALUGUEIS
+FROM payment AS P
+INNER JOIN customer AS C ON C.customer_id = P.customer_id
+GROUP BY  C.customer_id, C.first_name
+ORDER BY TOTALALUGUEIS DESC
+LIMIT 10;
+
+-- Região com maior numero de Alugueis
+
+SELECT
+	
+    C.customer_id,
+    C.first_name,
+    COUNT(R.rental_id) QUANTIDADEALUGEIS
+FROM rental AS R
+INNER JOIN customer AS C ON C.customer_id = R.customer_id
+GROUP BY C.customer_id, C.first_name
+ORDER BY QUANTIDADEALUGEIS DESC
+LIMIT 10;
+
+-- Lojas que geram mais receita e onde estão localizadas
+SELECT
+    S.store_id,
+    CI.city,
+    CO.country,
+    SUM(P.amount) AS TOTAL_RECEITA,
+    COUNT(R.rental_id) AS QTD_ALUGUEIS,
+    AVG(P.amount) AS TICKET_MEDIO
+FROM payment AS P
+JOIN rental AS R ON R.rental_id = P.rental_id
+JOIN inventory AS I ON I.inventory_id = R.inventory_id
+JOIN store AS S ON S.store_id = I.store_id
+JOIN address AS A ON S.address_id = A.address_id
+JOIN city AS CI ON A.city_id = CI.city_id
+JOIN country AS CO ON CI.country_id = CO.country_id
+GROUP BY S.store_id, CI.city, CO.country
+ORDER BY TOTAL_RECEITA DESC;
 
 
+-- Valor Médio de pagamento por cliente
 
+SELECT
+    C.customer_id,
+    C.first_name,
+    C.last_name,
+    SUM(P.amount) TOTALALUGUEIS,
+    FORMAT(AVG(P.amount),2) VALOR_MEDIO
+FROM payment AS P
+INNER JOIN customer AS C ON C.customer_id = P.customer_id
+GROUP BY  C.customer_id, C.first_name
+ORDER BY TOTALALUGUEIS DESC
+LIMIT 10;
