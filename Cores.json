@@ -1,0 +1,16 @@
+{
+  "name": "Paleta Suave - Pastel",
+  "dataColors": [
+    "#A8DADC",
+    "#F4A261",
+    "#E76F51",
+    "#2A9D8F",
+    "#E9C46A",
+    "#F1FAEE",
+    "#B5838D",
+    "#6D6875"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#2A2A2A",
+  "tableAccent": "#A8DADC"
+}
