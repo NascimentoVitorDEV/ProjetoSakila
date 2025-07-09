@@ -1,10 +1,10 @@
- ## 🎥 Análise de Aluguéis de Filmes com Power BI e MySQL — Base Sakila
+ ## Análise de Aluguéis de Filmes com Power BI e MySQL — Base Sakila
 
-### 🔖 Visão Geral do Projeto
+### Visão Geral do Projeto
 
 Este projeto tem como objetivo aplicar técnicas de Business Intelligence utilizando MySQL e Power BI sobre a base de dados relacional Sakila, que simula o funcionamento de uma locadora de filmes. Através dessa base, foi possível realizar uma série de consultas SQL e criar métricas relevantes para análise de desempenho operacional, preferências dos clientes, categorias mais lucrativas e performance por loja.
 
-### 🗃️ Base de Dados: Sakila
+### Base de Dados: Sakila
 
 A base Sakila é amplamente utilizada para fins educacionais e representa uma locadora de filmes fictícia. Ela possui diversas tabelas inter-relacionadas que simulam um cenário real de negócio.
 
