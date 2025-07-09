@@ -37,7 +37,7 @@ INNER JOIN inventory AS I ON I.film_id = F.film_id
 INNER JOIN rental AS R ON R.inventory_id = I.inventory_id
 INNER JOIN payment AS P ON P.rental_id = R.rental_id
 GROUP BY  FC.category_id, C.name
-ORDER BY  FC.category_id ASC;
+ORDER BY  TOTAL_ALUGUEIS DESC;
 
 -- DESEMPENHO POR LOJA 
 SELECT
@@ -141,3 +141,5 @@ INNER JOIN customer AS C ON C.customer_id = P.customer_id
 GROUP BY  C.customer_id, C.first_name
 ORDER BY TOTALALUGUEIS DESC
 LIMIT 10;
+
+
