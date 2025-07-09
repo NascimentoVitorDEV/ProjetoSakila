@@ -66,6 +66,10 @@ O dashboard foi construído com foco em interatividade, clareza e apoio à decis
 *   Drill Through por Cliente: análise detalhada ao clicar em um cliente.
 *   Filtros Flutuantes: seleção por ano, mês, loja, categoria etc.
 *   Tooltips customizados: insights adicionais ao passar o cursor.
+#### Links Para o Deshboard
+<p>
+📊 <a href="https://app.powerbi.com/view?r=LINK_DO_SEU_RELATORIO_PUBLICADO" target="_blank">Visualizar Dashboard no Power BI</a>
+</p>
 
 ### Análises
 
@@ -251,6 +255,9 @@ Duas análises complementares sobre o comportamento do cliente foram realizadas:
 ### Ticket Médio por Cliente: Valor da Transação Individual
 
 O valor médio pago por cliente (`ValorMedioPorClient.png`) oferece uma visão sobre o gasto individual. Embora a imagem mostre o total de aluguéis e o valor médio, o foco aqui é o valor médio por cliente. Por exemplo, **ANA** tem um valor médio de **R$ 5,14**, enquanto **KARL** tem **R$ 4,92**. Essa métrica é fundamental para segmentar clientes e criar ofertas personalizadas que incentivem um maior gasto por aluguel.
+
+
+
 
 
 
