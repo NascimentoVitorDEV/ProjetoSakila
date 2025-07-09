@@ -68,7 +68,7 @@ O dashboard foi construído com foco em interatividade, clareza e apoio à decis
 *   Tooltips customizados: insights adicionais ao passar o cursor.
 #### Links Para o Deshboard
 <p>
-📊 <a href="https://app.powerbi.com/view?r=LINK_DO_SEU_RELATORIO_PUBLICADO" target="_blank">Visualizar Dashboard no Power BI</a>
+📊 <a href="https://app.powerbi.com/view?r=eyJrIjoiZWQzZDk0ZmMtMjk3NS00Y2E0LWFkMzYtNDI1YWIwNjg3OTI2IiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9" target="_blank">Visualizar Dashboard no Power BI</a>
 </p>
 
 ### Análises
