@@ -166,7 +166,7 @@ ORDER BY TOTAL_RECEITA DESC;
 
 ![Lojas que Geram Mais Receita e Onde Estão Localizadas](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/Regia%C3%A3o.png)
 
-##### Categorias Com Maior Número de Aluguéis
+##### Categorias com Maior Rendimento
 
 ```sql
 SELECT
@@ -186,6 +186,6 @@ ORDER BY  FC.category_id ASC;
 
 ```
 
-![Categorias que mais alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/AlugueisPorCategoria.png)
+![Categorias que mais alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/CategoriasComMaiorRendimento.png)
 
 
