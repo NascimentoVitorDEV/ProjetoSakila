@@ -129,7 +129,7 @@ INNER JOIN payment AS P ON P.staff_id = SF.staff_id
 GROUP BY SF.staff_id, SF.first_name;
 ```
 
-![Desempenho por Loja e por Funcionário]()
+![Desempenho por Loja e por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorFuncion%C3%A1rio.png)()
 
 ##### Top 10 Filmes Mais Alugados e Clientes que Mais Alugam
 
