@@ -188,4 +188,21 @@ ORDER BY  FC.category_id ASC;
 
 ![Categorias que mais alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/CategoriasComMaiorRendimento.png)
 
+##### AnáliseTemporal
+
+```sql
+SELECT
+	YEAR(P.payment_date) ANO,
+    MONTH(P.payment_date) MES,
+	SUM(P.amount) AS PAGAMENTOS
+FROM payment AS P
+GROUP BY YEAR(P.payment_date), MONTH(P.payment_date)
+ORDER BY ANO, MES;
+
+
+```
+
+![AnáliseAoLongodoTempo](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/AnaliseTempo.png)
+
+
 
