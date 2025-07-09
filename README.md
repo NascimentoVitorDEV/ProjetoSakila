@@ -67,44 +67,7 @@ O dashboard foi construído com foco em interatividade, clareza e apoio à decis
 *   Filtros Flutuantes: seleção por ano, mês, loja, categoria etc.
 *   Tooltips customizados: insights adicionais ao passar o cursor.
 
-### Resultados e Insights
-
-A análise dos dados da base Sakila revelou insights estratégicos para a locadora fictícia:
-
-#### Receita ao Longo do Tempo
-
-•
-Identificamos sazonalidade mensal na receita, com picos em Julho e Agosto, sugerindo a necessidade de planejamento de estoque e campanhas direcionadas para otimizar o faturamento.
-
-#### Categorias Mais Lucrativas
-
-•
-Action, Sports e Sci-Fi são as categorias de maior receita, representando o core do negócio. Sugere-se investimento contínuo em novos títulos e marketing focado nesses gêneros.
-
-#### Top 10 Filmes Mais Alugados
-
-•
-A demanda se concentra nos Top 10 Filmes, muitos deles das categorias de sucesso. É crucial manter estoque adequado e considerar promoções para títulos menos populares, otimizando o giro.
-
-#### Performance das Lojas
-
-•
-A Loja 1 demonstrou desempenho superior em receita e aluguéis. Recomenda-se analisar suas melhores práticas para replicá-las na Loja 2 e equalizar a performance da rede.
-
-#### Funcionários com Maior Receita Gerada
-
-•
-Colaboradores da Loja 1 lideraram em valores recebidos. Essa informação é valiosa para treinamento e benchmarking interno, elevando o padrão de serviço e a geração de receita.
-
-#### Comportamento dos Clientes
-
-•
-Identificamos clientes mais ativos por volume e valor pago. Sugere-se campanhas de fidelização personalizadas para esses VIPs e análise de seus perfis para atrair novos clientes.
-
-#### Ticket Médio
-
-•
-O ticket médio é um indicador crucial do valor por transação, útil para comparações. Monitorá-lo pode revelar oportunidades para aumentar o valor por aluguel (ex: sugestões de aluguéis adicionais, combos).
+### Análises
 
 ##### Desempenho por Loja e por Funcionário
 
@@ -129,7 +92,8 @@ INNER JOIN payment AS P ON P.staff_id = SF.staff_id
 GROUP BY SF.staff_id, SF.first_name;
 ```
 
-![Desempenho por Loja e por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorFuncion%C3%A1rio.png)()
+![Desempenho por Loja e por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorFuncion%C3%A1rio.png)
+![Desempenho por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorLoja.png)
 
 ##### Top 10 Filmes Mais Alugados e Clientes que Mais Alugam
 
@@ -158,9 +122,10 @@ ORDER BY QUANTIDADEALUGUEIS DESC
 LIMIT 10;
 ```
 
-![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam]()
+![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/Top10Filmes%20MaisAlugados.png)
+![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/ClientesMaisAtivos.png)
 
-##### Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis
+##### Clientes que Mais Pagaram Aluguel
 
 ```sql
 -- clientes que mais pagaram aluguel
@@ -173,18 +138,9 @@ INNER JOIN customer AS C ON C.customer_id = P.customer_id
 ORDER BY TOTALALUGUEIS DESC
 LIMIT 10;
 
--- Região com maior numero de Alugueis
-SELECT
-C.customer_id,
-C.first_name,
-COUNT(R.rental_id) QUANTIDADEALUGUEIS
-FROM rental AS R
-INNER JOIN customer AS C ON C.customer_id = R.customer_id
-ORDER BY QUANTIDADEALUGUEIS DESC
-LIMIT 10;
 ```
 
-![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis]()
+![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/ClientesMaisPagaram.png)
 
 ##### Lojas que Geram Mais Receita e Onde Estão Localizadas
 
@@ -208,6 +164,28 @@ GROUP BY S.store_id, CI.city, CO.country
 ORDER BY TOTAL_RECEITA DESC;
 ```
 
-![Lojas que Geram Mais Receita e Onde Estão Localizadas]()
+![Lojas que Geram Mais Receita e Onde Estão Localizadas](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/Regia%C3%A3o.png)
+
+##### Categorias Com Maior Número de Aluguéis
+
+```sql
+SELECT
+
+    FC.category_id,
+    C.name,
+    SUM(P.amount) TOTAL_ALUGUEIS
+    
+FROM film  AS F
+INNER JOIN film_category AS FC ON FC.film_id = F.film_id
+INNER JOIN category AS C ON C.category_id = FC.category_id
+INNER JOIN inventory AS I ON I.film_id = F.film_id
+INNER JOIN rental AS R ON R.inventory_id = I.inventory_id
+INNER JOIN payment AS P ON P.rental_id = R.rental_id
+GROUP BY  FC.category_id, C.name
+ORDER BY  FC.category_id ASC;
+
+```
+
+![Categorias que mais alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/AlugueisPorCategoria.png)
 
 
