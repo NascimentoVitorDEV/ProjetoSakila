@@ -129,7 +129,7 @@ INNER JOIN payment AS P ON P.staff_id = SF.staff_id
 GROUP BY SF.staff_id, SF.first_name;
 ```
 
-![Desempenho por Loja e por Funcionário](Imagens/Analise3.png)
+![Desempenho por Loja e por Funcionário]()
 
 ##### Top 10 Filmes Mais Alugados e Clientes que Mais Alugam
 
@@ -158,7 +158,7 @@ ORDER BY QUANTIDADEALUGUEIS DESC
 LIMIT 10;
 ```
 
-![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam](Imagens/Analise4.png)
+![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam]()
 
 ##### Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis
 
@@ -184,7 +184,7 @@ ORDER BY QUANTIDADEALUGUEIS DESC
 LIMIT 10;
 ```
 
-![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis](Imagens/Analise5.png)
+![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis]()
 
 ##### Lojas que Geram Mais Receita e Onde Estão Localizadas
 
@@ -208,6 +208,6 @@ GROUP BY S.store_id, CI.city, CO.country
 ORDER BY TOTAL_RECEITA DESC;
 ```
 
-![Lojas que Geram Mais Receita e Onde Estão Localizadas](Imagens/Analise6.png)
+![Lojas que Geram Mais Receita e Onde Estão Localizadas]()
 
 
