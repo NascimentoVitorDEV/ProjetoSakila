@@ -237,6 +237,16 @@ Os dez filmes mais alugados (`Top10FilmesMaisAlugados.png`) demonstram a concent
 
 Manter um estoque robusto desses filmes é essencial para atender à demanda e evitar perdas de vendas. Estratégias para promover filmes menos populares ou de outras categorias podem ajudar a diversificar a receita.
 
+### Categorias com Maior Rendimento
+
+A análise das categorias de filmes revelou quais gêneros são os mais lucrativos para a locadora. Conforme os dados, as categorias que geraram maior receita são:
+
+*   **Sports:** R$ 5.314,21
+*   **Sci-Fi:** R$ 4.756,98
+*   **Animation:** R$ 4.656,30
+
+Esses resultados indicam que filmes de **Esporte**, **Ficção Científica** e **Animação** são os que mais contribuem para o faturamento. Este insight é fundamental para direcionar a aquisição de novos títulos e o foco das campanhas de marketing, garantindo que a oferta esteja alinhada com a demanda e o potencial de receita.
+
 ### Performance das Lojas: Comparativo de Desempenho
 
 A análise de desempenho por loja (`DesempenhoPorLoja.png` e `Regiaão.png`) revela que a **Loja 2 (Woodridge, Austrália)** gerou uma receita ligeiramente superior de **R$ 33.726,77** com 8.121 aluguéis e um ticket médio de R$ 4,15. Já a **Loja 1 (Lethbridge, Canadá)** obteve **R$ 33.679,79** em receita com 7.923 aluguéis e um ticket médio de R$ 4,25. Embora os valores totais sejam próximos, a Loja 1 apresenta um ticket médio ligeiramente maior, indicando que, em média, seus clientes gastam um pouco mais por aluguel. Essa pequena diferença pode ser explorada para entender as práticas que levam a um ticket médio mais alto.
