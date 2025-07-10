@@ -1,10 +1,10 @@
- ## 🎥 Análise de Aluguéis de Filmes com Power BI e MySQL — Base Sakila
+ ## Análise de Aluguéis de Filmes com Power BI e MySQL — Base Sakila
 
-### 🔖 Visão Geral do Projeto
+### Visão Geral do Projeto
 
 Este projeto tem como objetivo aplicar técnicas de Business Intelligence utilizando MySQL e Power BI sobre a base de dados relacional Sakila, que simula o funcionamento de uma locadora de filmes. Através dessa base, foi possível realizar uma série de consultas SQL e criar métricas relevantes para análise de desempenho operacional, preferências dos clientes, categorias mais lucrativas e performance por loja.
 
-### 🗃️ Base de Dados: Sakila
+### Base de Dados: Sakila
 
 A base Sakila é amplamente utilizada para fins educacionais e representa uma locadora de filmes fictícia. Ela possui diversas tabelas inter-relacionadas que simulam um cenário real de negócio.
 
@@ -66,45 +66,12 @@ O dashboard foi construído com foco em interatividade, clareza e apoio à decis
 *   Drill Through por Cliente: análise detalhada ao clicar em um cliente.
 *   Filtros Flutuantes: seleção por ano, mês, loja, categoria etc.
 *   Tooltips customizados: insights adicionais ao passar o cursor.
+#### Links Para o Deshboard
+<p>
+📊 <a href="https://app.powerbi.com/view?r=eyJrIjoiZWQzZDk0ZmMtMjk3NS00Y2E0LWFkMzYtNDI1YWIwNjg3OTI2IiwidCI6IjY1OWNlMmI4LTA3MTQtNDE5OC04YzM4LWRjOWI2MGFhYmI1NyJ9" target="_blank">Visualizar Dashboard no Power BI</a>
+</p>
 
-### Resultados e Insights
-
-A análise dos dados da base Sakila revelou insights estratégicos para a locadora fictícia:
-
-#### Receita ao Longo do Tempo
-
-•
-Identificamos sazonalidade mensal na receita, com picos em Julho e Agosto, sugerindo a necessidade de planejamento de estoque e campanhas direcionadas para otimizar o faturamento.
-
-#### Categorias Mais Lucrativas
-
-•
-Action, Sports e Sci-Fi são as categorias de maior receita, representando o core do negócio. Sugere-se investimento contínuo em novos títulos e marketing focado nesses gêneros.
-
-#### Top 10 Filmes Mais Alugados
-
-•
-A demanda se concentra nos Top 10 Filmes, muitos deles das categorias de sucesso. É crucial manter estoque adequado e considerar promoções para títulos menos populares, otimizando o giro.
-
-#### Performance das Lojas
-
-•
-A Loja 1 demonstrou desempenho superior em receita e aluguéis. Recomenda-se analisar suas melhores práticas para replicá-las na Loja 2 e equalizar a performance da rede.
-
-#### Funcionários com Maior Receita Gerada
-
-•
-Colaboradores da Loja 1 lideraram em valores recebidos. Essa informação é valiosa para treinamento e benchmarking interno, elevando o padrão de serviço e a geração de receita.
-
-#### Comportamento dos Clientes
-
-•
-Identificamos clientes mais ativos por volume e valor pago. Sugere-se campanhas de fidelização personalizadas para esses VIPs e análise de seus perfis para atrair novos clientes.
-
-#### Ticket Médio
-
-•
-O ticket médio é um indicador crucial do valor por transação, útil para comparações. Monitorá-lo pode revelar oportunidades para aumentar o valor por aluguel (ex: sugestões de aluguéis adicionais, combos).
+### Análises
 
 ##### Desempenho por Loja e por Funcionário
 
@@ -129,7 +96,8 @@ INNER JOIN payment AS P ON P.staff_id = SF.staff_id
 GROUP BY SF.staff_id, SF.first_name;
 ```
 
-![Desempenho por Loja e por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorFuncion%C3%A1rio.png)()
+![Desempenho por Loja e por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorFuncion%C3%A1rio.png)
+![Desempenho por Funcionário](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/DesempenhoPorLoja.png)
 
 ##### Top 10 Filmes Mais Alugados e Clientes que Mais Alugam
 
@@ -158,9 +126,10 @@ ORDER BY QUANTIDADEALUGUEIS DESC
 LIMIT 10;
 ```
 
-![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam]()
+![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/Top10Filmes%20MaisAlugados.png)
+![Top 10 Filmes Mais Alugados e Clientes que Mais Alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/ClientesMaisAtivos.png)
 
-##### Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis
+##### Clientes que Mais Pagaram Aluguel
 
 ```sql
 -- clientes que mais pagaram aluguel
@@ -173,18 +142,9 @@ INNER JOIN customer AS C ON C.customer_id = P.customer_id
 ORDER BY TOTALALUGUEIS DESC
 LIMIT 10;
 
--- Região com maior numero de Alugueis
-SELECT
-C.customer_id,
-C.first_name,
-COUNT(R.rental_id) QUANTIDADEALUGUEIS
-FROM rental AS R
-INNER JOIN customer AS C ON C.customer_id = R.customer_id
-ORDER BY QUANTIDADEALUGUEIS DESC
-LIMIT 10;
 ```
 
-![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis]()
+![Clientes que Mais Pagaram Aluguel e Região com Maior Número de Aluguéis](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/ClientesMaisPagaram.png)
 
 ##### Lojas que Geram Mais Receita e Onde Estão Localizadas
 
@@ -208,6 +168,107 @@ GROUP BY S.store_id, CI.city, CO.country
 ORDER BY TOTAL_RECEITA DESC;
 ```
 
-![Lojas que Geram Mais Receita e Onde Estão Localizadas]()
+![Lojas que Geram Mais Receita e Onde Estão Localizadas](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/Regia%C3%A3o.png)
+
+##### Categorias com Maior Rendimento
+
+```sql
+SELECT
+
+    FC.category_id,
+    C.name,
+    SUM(P.amount) TOTAL_ALUGUEIS
+    
+FROM film  AS F
+INNER JOIN film_category AS FC ON FC.film_id = F.film_id
+INNER JOIN category AS C ON C.category_id = FC.category_id
+INNER JOIN inventory AS I ON I.film_id = F.film_id
+INNER JOIN rental AS R ON R.inventory_id = I.inventory_id
+INNER JOIN payment AS P ON P.rental_id = R.rental_id
+GROUP BY  FC.category_id, C.name
+ORDER BY  FC.category_id ASC;
+
+```
+
+![Categorias que mais alugam](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/CategoriasComMaiorRendimento.png)
+
+##### AnáliseTemporal
+
+```sql
+SELECT
+	YEAR(P.payment_date) ANO,
+    MONTH(P.payment_date) MES,
+	SUM(P.amount) AS PAGAMENTOS
+FROM payment AS P
+GROUP BY YEAR(P.payment_date), MONTH(P.payment_date)
+ORDER BY ANO, MES;
+
+
+```
+
+![AnáliseAoLongodoTempo](https://github.com/NascimentoVitorDEV/ProjetoSakila/blob/main/Imagens/AnaliseTempo.png)
+
+
+## Resultados e Insights
+
+Com base nas análises detalhadas da base de dados Sakila, os seguintes resultados e insights foram identificados, fundamentados nos dados extraídos e visualizados:
+
+###  Receita ao Longo do Tempo: Sazonalidade e Crescimento
+
+A análise temporal da receita (`AnaliseTempo.png`) revela uma clara sazonalidade e um crescimento significativo no faturamento da locadora. Observa-se um aumento notável da receita de **maio a julho de 2005**, com os pagamentos saltando de **R$ 4.823,44 em maio** para **R$ 28.368,91 em julho**. Embora haja uma leve queda em agosto (R$ 24.070,14), o ano de 2006 inicia com um valor menor em fevereiro (R$ 514,18), indicando que o período de alta performance se concentra nos meses de verão. Essa tendência sugere a importância de estratégias de marketing e estoque focadas nesses meses de pico para maximizar os lucros.
+
+### Categorias Mais Lucrativas: O Foco da Demanda
+
+As categorias de filmes com maior rendimento (`CategoriasComMaiorRendimento.png`) são cruciais para o negócio. As três categorias que geraram a maior receita são:
+
+*   **Sports:** R$ 5.314,21
+*   **Sci-Fi:** R$ 4.756,98
+*   **Animation:** R$ 4.656,30
+
+Esses dados reforçam que filmes de ação, ficção científica e animação são os pilares da receita da locadora, indicando onde o investimento em novos títulos e promoções deve ser prioritário.
+
+### Top 10 Filmes Mais Alugados: Os Blockbusters da Locadora
+
+Os dez filmes mais alugados (`Top10FilmesMaisAlugados.png`) demonstram a concentração da demanda em títulos específicos. Os líderes em quantidade de aluguéis são:
+
+*   **BUCKET BROTHERHOOD:** 34 aluguéis
+*   **ROCKETEER MOTHER:** 33 aluguéis
+*   **FORWARD TEMPLE:** 32 aluguéis
+
+Manter um estoque robusto desses filmes é essencial para atender à demanda e evitar perdas de vendas. Estratégias para promover filmes menos populares ou de outras categorias podem ajudar a diversificar a receita.
+
+### Categorias com Maior Rendimento
+
+A análise das categorias de filmes revelou quais gêneros são os mais lucrativos para a locadora. Conforme os dados, as categorias que geraram maior receita são:
+
+*   **Sports:** R$ 5.314,21
+*   **Sci-Fi:** R$ 4.756,98
+*   **Animation:** R$ 4.656,30
+
+Esses resultados indicam que filmes de **Esporte**, **Ficção Científica** e **Animação** são os que mais contribuem para o faturamento. Este insight é fundamental para direcionar a aquisição de novos títulos e o foco das campanhas de marketing, garantindo que a oferta esteja alinhada com a demanda e o potencial de receita.
+
+### Performance das Lojas: Comparativo de Desempenho
+
+A análise de desempenho por loja (`DesempenhoPorLoja.png` e `Regiaão.png`) revela que a **Loja 2 (Woodridge, Austrália)** gerou uma receita ligeiramente superior de **R$ 33.726,77** com 8.121 aluguéis e um ticket médio de R$ 4,15. Já a **Loja 1 (Lethbridge, Canadá)** obteve **R$ 33.679,79** em receita com 7.923 aluguéis e um ticket médio de R$ 4,25. Embora os valores totais sejam próximos, a Loja 1 apresenta um ticket médio ligeiramente maior, indicando que, em média, seus clientes gastam um pouco mais por aluguel. Essa pequena diferença pode ser explorada para entender as práticas que levam a um ticket médio mais alto.
+
+### Funcionários com Maior Receita Gerada: Reconhecimento e Benchmarking
+
+O desempenho dos funcionários (`DesempenhoPorFuncionário.png`) mostra que **Jon** gerou **R$ 33.924,06** em aluguéis, enquanto **Mike** gerou **R$ 33.482,50**. Essa proximidade nos valores indica uma performance equilibrada entre os dois principais funcionários. A análise individual pode ser aprofundada para identificar as melhores práticas de cada um e aplicá-las em treinamentos para otimizar o atendimento e as vendas.
+
+### Comportamento dos Clientes: Identificando e Fidelizando
+
+Duas análises complementares sobre o comportamento do cliente foram realizadas:
+
+*   **Clientes Mais Ativos por Quantidade de Aluguéis** (`ClientesMaisAtivos.png`): **ELEANOR** (46 aluguéis), **KARL** (45 aluguéis) e **CLARA** (42 aluguéis) são os clientes que mais alugam filmes. Esses clientes representam a base de usuários mais engajada.
+*   **Clientes que Mais Pagaram Aluguel** (`ClientesMaisPagaram.png`): **KARL** (R$ 221,55), **ELEANOR** (R$ 216,54) e **CLARA** (R$ 195,58) são os que mais contribuíram para a receita. É interessante notar que os clientes mais ativos por quantidade de aluguéis também são os que mais pagam, reforçando a importância de programas de fidelidade e reconhecimento para esses clientes VIP.
+
+### Ticket Médio por Cliente: Valor da Transação Individual
+
+O valor médio pago por cliente (`ValorMedioPorClient.png`) oferece uma visão sobre o gasto individual. Embora a imagem mostre o total de aluguéis e o valor médio, o foco aqui é o valor médio por cliente. Por exemplo, **ANA** tem um valor médio de **R$ 5,14**, enquanto **KARL** tem **R$ 4,92**. Essa métrica é fundamental para segmentar clientes e criar ofertas personalizadas que incentivem um maior gasto por aluguel.
+
+
+
+
+
 
 
